@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="report" content='{"spm":"1032.2214"}'>
+  <meta name="referrer" content="always">
+  <script src="https://g.csdnimg.cn/??lib/jquery/1.9.1/jquery.js" type="text/javascript"></script>
+  <script src='https://g.csdnimg.cn/common/csdn-report/report.js' type='text/javascript'></script>
+  <title>安全中心</title>
+  <link  href="https://g.csdnimg.cn/static/logo/favicon32.ico" rel="shortcut icon" type="image/x-icon" />
+  <style>
+    html,body{background:#F3F4F5;font-family: PingFang SC,Hiragino Sans GB,Arial,Microsoft YaHei,Verdana,Roboto,Noto,Helvetica Neue,sans-serif;padding:0;margin:0;}
+    a{text-decoration:none;}
+    body{padding-bottom: 100px;}
+    .content{padding-top:220px;width:450px;margin:auto;word-break: break-all;}
+    .content .logo-img img{display: block;width:175px;height:175px;margin:auto;margin-bottom: 16px;}
+    .content .loading-item{background:#fff;padding:24px;border-radius: 12px;border: 1px solid #E1E1E1;}
+    .content .flex{display:flex;align-items:center;}
+    .content .flex-end{display:flex;justify-content:flex-end;align-items: center;}
+    .content .loading-activity {display: block;width: 100%;overflow: hidden;text-overflow: ellipsis;color: #4049f0;font-size: 14px;}
+    .content .tip1{background:#F0F9EA;} 
+    .content .tip2{background:#FDF5E6;}
+    .content .tip3{background:#FEF0F0;}
+    .content .ApesarehappyBox{flex: 1;display: flex;}
+    .content .Apesarehappy:hover{text-decoration: revert;}
+    .content .Apesarehappy{display: flex;align-items: center;font-size: 14px;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #68C23B;}
+    .content .Apesarehappy img{width: 24px;height: 24px;margin-right: 4px;}
+    .content .loading-color1{color:#267DCC;}
+    .content .loading-color2{color:#FC5531;}
+    .content .loading-tip{padding:12px;margin-bottom:16px;border-radius:4px;}
+    .content .loading-topic{font-size: 14px;color: #222226;line-height: 24px;margin-bottom:24px;}
+    .content .loading-img{width:24px;height:24px;}
+    .content .loading-btn{white-space: nowrap;font-size: 14px;color: #FC5531;border: 1px solid #FC5531;display:inline-block;box-sizing: border-box;padding:6px 18px;border-radius: 18px;margin-left:8px;}
+    .content .loading-btn-github{width:121px;background:#FC5531;color:#fff;}
+    .content .loading-text{font-size: 16px;font-weight: 600;color: #222226;line-height: 22px;margin-left:12px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+    .codyUrl{padding: 4px 10px;background: #000;border-radius: 4px;position: fixed;top: 20px;left: 50%;transform: translateX(-50%);color: #fff;font-size: 14px;display: none;}
+    #adCody{width: 110px;font-size: 14px;color: #CCCCD8;cursor: pointer;}
+    #adCody:hover{
+      text-decoration: underline;
+    }
+    @media (max-width: 450px){
+      .content{padding-top:120px;width:94%;}
+    }
+    #csdn-toolbar{width: 0;height: 0;display: none}
+    .super-box {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      width: 100%;
+      max-width: 1200px;
+      height: 90px;
+      transform: translateX(-50%);
+    }
+  </style>
+  <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+  <script src="https://g.csdnimg.cn/common/csdn-toolbar/csdn-toolbar.js" type="text/javascript"></script>
+    <div id="linkPage" class="link-page">
+        <div class="content">
+            <div class="logo-img"><img src="https://cdnjson.com/images/2024/02/20/d31a2e87161cce51c9.png" alt=""></div>
+            <div class="loading-item loading-safe flex">
+                <img class="loading-img" src="https://csdnimg.cn/release/link/img/tips20201108.png" alt="">
+                <div class="loading-text">您即将离开这网站</div>
+            </div>  
+        </div>
+        <div class="codyUrl">复制成功</div>
+    </div>
+
+  <div class="super-box">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1076724771190722"
+     crossorigin="anonymous"></script>
+    <!-- PC-外链跳转中间页 -->
+    <ins class="adsbygoogle"
+        style="display:inline-block;width:1200px;height:90px"
+        data-ad-client="ca-pub-1076724771190722"
+        data-ad-slot="1381572267"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</body>
+<script>
+  $(function(){
+    var getLinkUrl = getQueryString('target');
+    var pcFlag = false
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
+        //移动端            
+    } else {
+        //pc端  
+        pcFlag = true         
+    }
+    if(getLinkUrl){
+      $.ajax({
+        type: "get",
+        url: 'https://link.csdn.net/api/v1/link/check?url='+ getLinkUrl, //测服
+        xhrFields: {withCredentials: true},
+        success: function (res) {
+          var string = ''
+          // res = {"code":400200002,"message":"请注意您的账号和财产安全","data":null}
+          getLinkUrl = res.data.expand.url ? res.data.expand.url : getLinkUrl;
+          if(res.code == 200){
+            if(res.data.jump){
+              window.location.href = xssCheck(getLinkUrl)
+            }else{  
+              if(res.data.expand){
+                if(res.data.expand.url && res.data.expand.type && res.data.expand.type == 2){
+                  window.location.href = res.data.expand.url;
+                }else{
+                  var activityHtml = (!!(res.data && res.data.activity&& res.data.activity.title&& res.data.activity.url )) ? '<a title="' + res.data.activity.title + '" class="loading-activity" href="' + res.data.activity.url + '" target="_blank" data-report-click=\'{"spm":"1032.2214.3001.9058"}\' data-report-view=\'{"spm":"1032.2214.3001.9058"}\'>' + res.data.activity.title + '</a>' : '';
+                  string = '<div class="loading-item loading-others">\
+                            <div class="flex loading-tip tip1">\
+                              <img class="loading-img" src="https://csdnimg.cn/release/link/img/rockets20201108.png" alt="">\
+                              <div class="loading-text">'+res.data.expand.desc+'</div>\
+                            </div>\
+                            <div class="loading-topic">\
+                              <span>您即将离开此网站，去往：</span>\
+                              <a class="loading-color1">'+xssCheck(getLinkUrl)+'</a>\
+                            </div>\
+                            <div class="flex-end">' +
+                                activityHtml +
+                                '<p id="adCody" data-report-click=\'{"spm":"1032.2143.3001.9059"}\' data-report-view=\'{"spm":"1032.2143.3001.9059"}\'>复制链接</p>\
+                                <a class="loading-btn loading-btn-github" href="'+res.data.expand.url+'" target="_self" data-report-click=\'{"spm":"1032.2214.3001.5252"}\' data-report-view=\'{"spm":"1032.2214.3001.5252"}\'>'+res.data.expand.button+'</a>\
+                            </div>\
+                          </div>';
+                }
+              }
+            }
+            
+          }else if(res.code == 400200002){
+            var activityHtml = (!!(res.data && res.data.activity&& res.data.activity.title&& res.data.activity.url )) ? '<a title="' + res.data.activity.title + '" class="loading-activity" href="' + res.data.activity.url + '" target="_blank" data-report-click=\'{"spm":"1032.2214.3001.9058"}\' data-report-view=\'{"spm":"1032.2214.3001.9058"}\'>' + res.data.activity.title + '</a>' : '';
+            string = '<div class="loading-item loading-others" data-report-view=\'{"spm":"1032.2214.3001.5250"}\'>\
+                        <div class="flex loading-tip tip2">\
+                          <img class="loading-img" src="https://cdnjson.com/images/2024/02/20/warning20201108696a18a3750f4f39.png" alt="">\
+                          <div class="loading-text">'+res.message+'</div>\
+                        </div>\
+                        <div class="loading-topic"><span>您即将离开此网站，去往：</span><a class="loading-color2">'+xssCheck(getLinkUrl)+'</a>\
+                        </div>\
+                        <div class="flex-end">' +
+                          activityHtml +
+                          '<a class="loading-btn" id="apesar-loading" href="'+xssCheck(getLinkUrl)+'" target="_self" data-report-click=\'{"spm":"1032.2214.3001.5250"}\'>继续</a>\
+                        </div>\
+                      </div>'
+                      if ((res.data && !res.data.activity && pcFlag)||(res.data && res.data.activity&&(!res.data.activity.title||!res.data.activity.url))){
+                        $.ajax({
+                        type: "POST",
+                        url: 'https://devbit-api.csdn.net:8086/blog/middle_page/url_match',
+                        type: 'post',
+                        dataType: 'json',
+                        data:{
+                          'blogUrl':document.referrer,
+                          'url2Match':xssCheck(getLinkUrl)
+                        },
+                        xhrFields: {withCredentials: true},
+                        success: function (res) {
+                          if (res.code === 200){
+                            $('.loading-btn').before('<div class="ApesarehappyBox"><a class="Apesarehappy" href="' + res.data.targetUrl + '"  data-report-click=\'{"spm":"1032.2143.3001.9089"}\' data-report-view=\'{"spm":"1032.2143.3001.9089"}\'><img class="loading-img" src="https://img-home.csdnimg.cn/images/20221206044930.png" alt="">猿如意安全下载</a></div>')
+                            $('#apesar-loading').text('未知网站,继续访问')
+                          }
+                        }})
+                      }
+          }else if(res.code == 400200001){
+            string = '<div class="loading-item loading-others" data-report-view=\'{"spm":"1032.2214.3001.5261"}\'>\
+                        <div class="flex loading-tip tip3">\
+                          <img class="loading-img" src="https://csdnimg.cn/release/link/img/warning20201108.png" alt="">\
+                          <div class="loading-text">'+res.message+'</div>\
+                        </div>\
+                        <div class="loading-topic"><span>为您的账号和财产安全考虑，已将访问终止</span></div>\
+                      </div>'
+          }else{
+            string = '<div class="loading-item loading-others" data-report-view=\'{"spm":"1032.2214.3001.5260"}\'>\
+                        <div class="flex loading-tip tip3">\
+                          <img class="loading-img" src="https://csdnimg.cn/release/link/img/warning20201108.png" alt="">\
+                          <div class="loading-text">链接无法访问</div>\
+                        </div>\
+                        <div class="loading-topic"><span>您所访问的页面由于未知原因无法打开</span></div>\
+                      </div>'
+          }
+          
+          if(string){
+            $('.content .loading-safe').remove();
+            $('.content').append(string);
+          }  
+          $('#adCody').on('click',function(){
+            copyadd(getLinkUrl)
+          })  
+        },
+        error: function (res){
+          var string = '<div class="loading-item loading-others" data-report-view=\'{"spm":"1032.2214.3001.5260"}\'>\
+                        <div class="flex loading-tip tip3">\
+                          <img class="loading-img" src="https://csdnimg.cn/release/link/img/warning20201108.png" alt="">\
+                          <div class="loading-text">链接无法访问</div>\
+                        </div>\
+                        <div class="loading-topic"><span>您所访问的页面由于未知原因无法打开</span></div>\
+                      </div>'
+          $('.content .loading-safe').remove();
+          $('.content').append(string);
+        }
+      });
+    }
+    function getQueryString(name) {   
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象  
+      var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+      if( r != null ) return decodeURIComponent( r[2] ); return null;   
+    }
+    function xssCheck(str,reg){
+      return str ? str.replace(reg || /[&<">'](?:(amp|lt|quot|gt|#39|nbsp|#\d+);)?/g, function (a, b) {
+          if(b){
+              return a;
+          }else{
+              return {
+                  '<':'&lt;',
+                  '&':'&amp;',
+                  '"':'&quot;',
+                  '>':'&gt;',
+                  "'":'&#39;',
+              }[a]
+          }
+      }) : '';
+    }
+    function copyadd(add) {
+      var input = document.createElement("input");
+      document.body.appendChild(input);
+      input.setAttribute("value", add);
+      input.select();
+      document.execCommand("copy");
+      document.body.removeChild(input);
+      $('.codyUrl').fadeIn()
+      setTimeout(function(){
+        $('.codyUrl').fadeOut()
+      },1000)
+    }
+  })
+</script>
+</html>
